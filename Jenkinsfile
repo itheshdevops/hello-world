@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        KUBECONFIG = "${env.HOME}/.kube/config" // Path to your kubeconfig file
+        KUBECONFIG = "/root/.kube/config" // Path to your kubeconfig file
     }
 
-   stage {
+   stages {
       stage ('Deploying in k8s') {
          steps {
             sh 'sudo kubectl create -f hello-world.yaml'
